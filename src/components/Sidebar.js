@@ -2,6 +2,8 @@ import React from "react";
 
 function Sugestao(props){
     console.log(props);
+    //mini bonus <3
+    const [follow, setFollow] = React.useState('Seguir');
     return (
         <div class="sugestao">
             <div class="usuario">
@@ -11,11 +13,11 @@ function Sugestao(props){
                 <div class="razao">{props.razao}</div>
               </div>
             </div>
-
-            <div class="seguir">Seguir</div>
+            <div class="seguir" onClick={()=> setFollow('Seguindo') } >{follow}</div>
         </div>
     )
 }
+//easter egg https://www.youtube.com/watch?v=k3zimSRKqNw
 const sugestoes=[
     {nome:'bad.vibes.memes', imagem:'assets/img/bad.vibes.memes.svg', razao:'Segue você'},
     {nome:'chibirdart', imagem:'assets/img/chibirdart.svg', razao:'Segue você'},
