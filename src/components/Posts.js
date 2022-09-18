@@ -38,12 +38,16 @@ function Post(props){
           </div>
     )
 }
-
+const posts = [
+    {user: 'meowed',img:'assets/img/meowed.svg',imgpost:'assets/img/gato-telefone.svg',imgc:'assets/img/respondeai.svg',curtp:'respondeai',pes:'101.523'},
+    {user: 'barked',img:'assets/img/barked.svg',imgpost:'assets/img/dog.svg',imgc:'assets/img/adorable_animals.svg',curtp:'adorable_animals',pes:'99.159'},
+]
 export default function Posts(){
     return (
         <div class="posts">
-          <Post usuario="meowed" imagem="assets/img/meowed.svg" imgpostada="assets/img/gato-telefone.svg" imgcurtiu="assets/img/respondeai.svg" curtidopor="respondeai" pessoas="101.523" />
-          <Post usuario="barked" imagem="assets/img/barked.svg" imgpostada="assets/img/dog.svg" imgcurtiu="assets/img/adorable_animals.svg" curtidopor="adorable_animals" pessoas="99.159" />
+          {posts.map((posts) =>(
+            <Post usuario={posts.user} imagem={posts.img} imgpostada={posts.imgpost} imgcurtiu={posts.imgc} curtidopor={posts.curtp} pessoas={posts.pes} />
+          ))}
         </div>
     )
 }
