@@ -6,6 +6,10 @@ function Post(props){
     function postCurtido(){
         setCurtida(!curtida);
     }
+    const [salvo, setSalvo] = React.useState(props.salvo);
+    function postSalvo(){
+        setSalvo(!salvo);
+    }
     return(
         <div class="post">
             <div class="topo">
@@ -34,7 +38,12 @@ function Post(props){
                   <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
                 <div>
-                  <ion-icon name="bookmark-outline"></ion-icon>
+                  {salvo ?(
+                    <ion-icon name="bookmark" class="salvo" onClick={postSalvo}></ion-icon>
+                  ):(
+                    <ion-icon name="bookmark-outline" class="salvo" onClick={postSalvo} ></ion-icon>
+                  )}
+                  
                 </div>
               </div>
 
@@ -49,14 +58,14 @@ function Post(props){
     )
 }
 const posts = [
-    {user: 'meowed',img:'assets/img/meowed.svg',imgpost:'assets/img/gato-telefone.svg',imgc:'assets/img/respondeai.svg',curtp:'respondeai',pes:'101.523',curtida:false},
-    {user: 'barked',img:'assets/img/barked.svg',imgpost:'assets/img/dog.svg',imgc:'assets/img/adorable_animals.svg',curtp:'adorable_animals',pes:'99.159',curtida:false},
+    {user: 'meowed',img:'assets/img/meowed.svg',imgpost:'assets/img/gato-telefone.svg',imgc:'assets/img/respondeai.svg',curtp:'respondeai',pes:'101.523',curtida:false,salvo:false},
+    {user: 'barked',img:'assets/img/barked.svg',imgpost:'assets/img/dog.svg',imgc:'assets/img/adorable_animals.svg',curtp:'adorable_animals',pes:'99.159',curtida:false,salvo:false},
 ]
 export default function Posts(){
     return (
         <div class="posts">
           {posts.map((post) =>(
-            <Post usuario={post.user} imagem={post.img} imgpostada={post.imgpost} imgcurtiu={post.imgc} curtidopor={post.curtp} pessoas={post.pes} curtida={post.curtida} />
+            <Post usuario={post.user} imagem={post.img} imgpostada={post.imgpost} imgcurtiu={post.imgc} curtidopor={post.curtp} pessoas={post.pes} curtida={post.curtida} salvo={post.salvo} />
           ))}
         </div>
     )
