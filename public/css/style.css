@@ -310,6 +310,15 @@ body {
   display: none !important;
 }
 
+/*adicionei*/
+.curtida{
+  color: #c02222;
+}
+ion-icon{
+  visibility: visible;
+}
+/*---------*/
+
 @media (max-width: 935px) {
   .sidebar {
     display: none;

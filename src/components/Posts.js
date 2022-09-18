@@ -1,5 +1,11 @@
+import React from 'react';
+
 function Post(props){
     console.log(props);
+    const [curtida, setCurtida] = React.useState(props.curtida);
+    function postCurtido(){
+        setCurtida(!curtida);
+    }
     return(
         <div class="post">
             <div class="topo">
@@ -13,13 +19,17 @@ function Post(props){
             </div>
 
             <div class="conteudo">
-              <img src={props.imgpostada} />
+              <img src={props.imgpostada} onClick={postCurtido}/>
             </div>
 
             <div class="fundo">
               <div class="acoes">
                 <div>
-                  <ion-icon name="heart-outline"></ion-icon>
+                  {curtida ?(
+                    <ion-icon name="heart" class="curtida" onClick={postCurtido}></ion-icon>
+                  ):(
+                    <ion-icon name="heart-outline" onClick={postCurtido}></ion-icon>
+                  )}  
                   <ion-icon name="chatbubble-outline"></ion-icon>
                   <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
@@ -39,14 +49,14 @@ function Post(props){
     )
 }
 const posts = [
-    {user: 'meowed',img:'assets/img/meowed.svg',imgpost:'assets/img/gato-telefone.svg',imgc:'assets/img/respondeai.svg',curtp:'respondeai',pes:'101.523'},
-    {user: 'barked',img:'assets/img/barked.svg',imgpost:'assets/img/dog.svg',imgc:'assets/img/adorable_animals.svg',curtp:'adorable_animals',pes:'99.159'},
+    {user: 'meowed',img:'assets/img/meowed.svg',imgpost:'assets/img/gato-telefone.svg',imgc:'assets/img/respondeai.svg',curtp:'respondeai',pes:'101.523',curtida:false},
+    {user: 'barked',img:'assets/img/barked.svg',imgpost:'assets/img/dog.svg',imgc:'assets/img/adorable_animals.svg',curtp:'adorable_animals',pes:'99.159',curtida:false},
 ]
 export default function Posts(){
     return (
         <div class="posts">
-          {posts.map((posts) =>(
-            <Post usuario={posts.user} imagem={posts.img} imgpostada={posts.imgpost} imgcurtiu={posts.imgc} curtidopor={posts.curtp} pessoas={posts.pes} />
+          {posts.map((post) =>(
+            <Post usuario={post.user} imagem={post.img} imgpostada={post.imgpost} imgcurtiu={post.imgc} curtidopor={post.curtp} pessoas={post.pes} curtida={post.curtida} />
           ))}
         </div>
     )
