@@ -54,7 +54,7 @@ function Post(props){
                 </div>
               </div>
             </div>
-          </div>
+        </div>
     )
 }
 const posts = [

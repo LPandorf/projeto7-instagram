@@ -317,6 +317,10 @@ body {
 ion-icon{
   visibility: visible;
 }
+.ladinho{
+  display: flex;
+  align-items: center;
+}
 /*---------*/
 
 @media (max-width: 935px) {

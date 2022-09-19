@@ -1,4 +1,5 @@
 import React from "react";
+import Usuario from "./Usuario";
 
 function Sugestao(props){
     console.log(props);
@@ -29,16 +30,7 @@ const sugestoes=[
 export default function Sidebar(){
     return (
         <div class="sidebar">
-            <div class="usuario">
-                <img src="assets/img/catanacomics.svg" />
-                <div class="texto">
-                    <strong>catanacomics</strong>
-                    <span>
-                    Catana
-                    <ion-icon name="pencil"></ion-icon>
-                    </span>
-                </div>
-            </div>
+            <Usuario/>
 
             <div class="sugestoes">
                 <div class="titulo">
