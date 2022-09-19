@@ -1,10 +1,15 @@
 import React from 'react';
-
+// falta alterar o numero de curtidas
+let pesum=101.523;
+let pesdois=99.159;
 function Post(props){
     console.log(props);
     const [curtida, setCurtida] = React.useState(props.curtida);
     function postCurtido(){
         setCurtida(!curtida);
+        //if(curtida==true){
+        //    pesum=101.524;
+        //}
     }
     const [salvo, setSalvo] = React.useState(props.salvo);
     function postSalvo(){
@@ -58,8 +63,8 @@ function Post(props){
     )
 }
 const posts = [
-    {user: 'meowed',img:'assets/img/meowed.svg',imgpost:'assets/img/gato-telefone.svg',imgc:'assets/img/respondeai.svg',curtp:'respondeai',pes:'101.523',curtida:false,salvo:false},
-    {user: 'barked',img:'assets/img/barked.svg',imgpost:'assets/img/dog.svg',imgc:'assets/img/adorable_animals.svg',curtp:'adorable_animals',pes:'99.159',curtida:false,salvo:false},
+    {user: 'meowed',img:'assets/img/meowed.svg',imgpost:'assets/img/gato-telefone.svg',imgc:'assets/img/respondeai.svg',curtp:'respondeai',pes:pesum,curtida:false,salvo:false},
+    {user: 'barked',img:'assets/img/barked.svg',imgpost:'assets/img/dog.svg',imgc:'assets/img/adorable_animals.svg',curtp:'adorable_animals',pes:pesdois,curtida:false,salvo:false},
 ]
 export default function Posts(){
     return (

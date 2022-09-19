@@ -1,9 +1,7 @@
 import React from 'react';
 function Perfil(props){
     console.log(props);
-    function mudarNome(){
-        nome=prompt("Digite seu novo nome:");
-    }
+    
     return (
         <div class="ladinho">
             <img src={props.foto} />
@@ -11,12 +9,20 @@ function Perfil(props){
                 <strong>{props.user}</strong>
                 <span>
                     {props.nome}
-                    <ion-icon name="pencil" onClick={()=>mudarNome()}></ion-icon>
+                    <ion-icon name="pencil" ></ion-icon>
                 </span>
             </div>
         </div>
     )
 }
+// falta alterar nome e foto
+//onClick="mudarFoto()" onClick="mudarNome()"
+//function mudarFoto(){
+//    prompt("Coloque o link da sua nova foto de perfil:");
+//}
+//function mudarNome(){
+//    nome=prompt("Digite seu novo nome:");
+//}
 const perfil =[
     {user:'catanacomics', nome:'Catana', foto:'assets/img/catanacomics.svg'}
 ]
