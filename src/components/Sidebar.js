@@ -3,7 +3,7 @@ import Usuario from "./Usuario";
 
 function Sugestao(props){
     console.log(props);
-    //mini bonus <3
+    //mini bonus <3 -> mudar de seguir para seguindo
     const [follow, setFollow] = React.useState('Seguir');
     return (
         <div class="sugestao">
