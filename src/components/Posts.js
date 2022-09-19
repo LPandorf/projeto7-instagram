@@ -1,20 +1,26 @@
 import React from 'react';
-// falta alterar o numero de curtidas
-let pesum=101.523;
-let pesdois=99.159;
+let numeroum=101.523;
+let numerodois=99.158;
 function Post(props){
     console.log(props);
+    const [numero, setNumero] = React.useState(props.pessoas)
     const [curtida, setCurtida] = React.useState(props.curtida);
     function postCurtido(){
+      if(curtida===false){
         setCurtida(!curtida);
-        //if(curtida==true){
-        //    pesum=101.524;
-        //}
+        setNumero(numero+0.001);
+      }else{
+        setCurtida(!curtida);
+        setNumero(numero-0.001);
+      }
+    }    
+    function numeroCurtida(){
+      setNumero(numero);
     }
     const [salvo, setSalvo] = React.useState(props.salvo);
     function postSalvo(){
         setSalvo(!salvo);
-    }
+    }    
     return(
         <div class="post">
             <div class="topo">
@@ -35,9 +41,9 @@ function Post(props){
               <div class="acoes">
                 <div>
                   {curtida ?(
-                    <ion-icon name="heart" class="curtida" onClick={postCurtido}></ion-icon>
+                    <ion-icon name="heart" class="curtida" onClick={postCurtido / numeroCurtida}></ion-icon>
                   ):(
-                    <ion-icon name="heart-outline" onClick={postCurtido}></ion-icon>
+                    <ion-icon name="heart-outline" onClick={postCurtido / numeroCurtida}></ion-icon>
                   )}  
                   <ion-icon name="chatbubble-outline"></ion-icon>
                   <ion-icon name="paper-plane-outline"></ion-icon>
@@ -55,7 +61,7 @@ function Post(props){
               <div class="curtidas">
                 <img src={props.imgcurtiu} />
                 <div class="texto">
-                  Curtido por <strong>{props.curtidopor}</strong> e <strong>outras {props.pessoas} pessoas</strong>
+                  Curtido por <strong>{props.curtidopor}</strong> e <strong>outras {numero} pessoas</strong>
                 </div>
               </div>
             </div>
@@ -63,8 +69,8 @@ function Post(props){
     )
 }
 const posts = [
-    {user: 'meowed',img:'assets/img/meowed.svg',imgpost:'assets/img/gato-telefone.svg',imgc:'assets/img/respondeai.svg',curtp:'respondeai',pes:pesum,curtida:false,salvo:false},
-    {user: 'barked',img:'assets/img/barked.svg',imgpost:'assets/img/dog.svg',imgc:'assets/img/adorable_animals.svg',curtp:'adorable_animals',pes:pesdois,curtida:false,salvo:false},
+    {user: 'meowed',img:'assets/img/meowed.svg',imgpost:'assets/img/gato-telefone.svg',imgc:'assets/img/respondeai.svg',curtp:'respondeai',pes:numeroum,curtida:false,salvo:false},
+    {user: 'barked',img:'assets/img/barked.svg',imgpost:'assets/img/dog.svg',imgc:'assets/img/adorable_animals.svg',curtp:'adorable_animals',pes:numerodois,curtida:false,salvo:false},
 ]
 export default function Posts(){
     return (

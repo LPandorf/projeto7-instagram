@@ -1,32 +1,32 @@
 import React from 'react';
 function Perfil(props){
     console.log(props);
-    
+    const [nome, setNome] = React.useState(props.nome);
+    function mudarNome(){
+        const novoNome=prompt("Digite seu novo nome:");
+        setNome(novoNome);    
+    }
+    const [foto, setFoto] = React.useState(props.foto);
+    function mudarFoto(){
+        const novaFoto=prompt("Coloque o link da sua nova foto de perfil:");
+        setFoto(novaFoto); 
+    }    
     return (
         <div class="ladinho">
-            <img src={props.foto} />
+            <img src={foto} onClick={mudarFoto}/>
             <div class="texto">
                 <strong>{props.user}</strong>
                 <span>
-                    {props.nome}
-                    <ion-icon name="pencil" ></ion-icon>
+                    {nome}
+                    <ion-icon name="pencil" onClick={mudarNome}></ion-icon>
                 </span>
             </div>
         </div>
     )
 }
-// falta alterar nome e foto
-//onClick="mudarFoto()" onClick="mudarNome()"
-//function mudarFoto(){
-//    prompt("Coloque o link da sua nova foto de perfil:");
-//}
-//function mudarNome(){
-//    nome=prompt("Digite seu novo nome:");
-//}
 const perfil =[
     {user:'catanacomics', nome:'Catana', foto:'assets/img/catanacomics.svg'}
 ]
-
 export default function Usuario(){
     return (
         <div class="usuario">
